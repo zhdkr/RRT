@@ -12,7 +12,7 @@ class App:
 
     def __init__(self) -> None:
         pg.init()
-        self.screen = pg.display.set_mode((WIDTH, HEIGHT))
+        self.screen = pg.display.set_mode((WIDTH, HEIGHT))  
         self.clock = Clock()
         self.running = True
         self.start: Vector2  #| None = None
@@ -20,21 +20,21 @@ class App:
         self.tmp = 5
         self.tree: RRT #| None = None
         self.obstacle_list = [Obstacle.random(WIDTH, HEIGHT) for _ in range(100)]
-        self.drawable_list: list[Drawable] = [*self.obstacle_list]
-        RRT.OBSTACLE_LIST = self.obstacle_list
+        self.drawable_list: list[Drawable] = [*self.obstacle_list] # üstte zaten var aynısını tekrar neden oluşturuyoruz ? 
+        RRT.OBSTACLE_LIST = self.obstacle_list # üstte zaten var aynısını tekrar neden oluşturuyoruz ? 
 
     def main(self) -> None:
         while self.running:
             self.__event_handler()
             self.screen.fill(self.BACKGROUND_COLOR)
 
-            self.__update()
-            self.__draw()
+            self.__update() # update ne işe yarıyor ? 
+            self.__draw() 
 
-            self.clock.tick(FPS)
+            self.clock.tick(FPS) # FPS bilgisi nasıl oluşturuluyor ?
 
-            pg.display.set_caption(f"FPS => {self.clock.get_fps()}")
-            pg.display.update()
+            pg.display.set_caption(f"FPS => {self.clock.get_fps()}") # FPS neden captionda gösteriliyor 
+            pg.display.update() 
 
     def __del__(self) -> None:
         if self.tree:
@@ -60,14 +60,14 @@ class App:
                     self.drawable_list.append(self.tree)
 
                 elif not self.tree.started:
-                    self.tree.main(Vector2(x, y))
+                    self.tree.main(Vector2(x, y)) # threadle ilgili soru ?
 
     def __update(self):
         pass
 
     def __draw(self) -> None:
         for drawable in self.drawable_list:
-            drawable.draw(self.screen)
+            drawable.draw(self.screen)  #soru ? 
 
 
 if __name__ == "__main__":

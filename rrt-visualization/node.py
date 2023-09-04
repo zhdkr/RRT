@@ -16,21 +16,21 @@ class Node:
     COLOR_SELECTED: ClassVar[Color] = Color(0, 255, 0)
     RADIUS_SELECTED: ClassVar[int] = 10
 
-    MARGIN_MIN: ClassVar[int] = 15
+    MARGIN_MIN: ClassVar[int] = 15   # bu marginler ne ? 
     MARGIN_MAX: ClassVar[int] = MARGIN_MIN + 10
-    NEIGHBOUR_MAX: ClassVar[int] = MARGIN_MAX + 20
-    MAX_ANGLE: ClassVar[int] = 30
-    ID: ClassVar[int] = 0
+    NEIGHBOUR_MAX: ClassVar[int] = MARGIN_MAX + 20  # neighbour ne ? 
+    MAX_ANGLE: ClassVar[int] = 30  # neyin açısı ? 
+    ID: ClassVar[int] = 0   # neyin id si 
 
     pos: Vector2
     angle: float  # degree
     reversed: bool
     parent: Node | None = None
     cost: float = 0
-    childs: list[Node] = field(default_factory=list)
+    childs: list[Node] = field(default_factory=list) # field ne ? 
     color: Color = field(init=False)
     id: int = field(init=False)
-    radius: float = 5
+    radius: float = 5 # neyin radiusu 
 
     @property
     def direction(self) -> Vector2:

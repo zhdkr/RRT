@@ -15,8 +15,8 @@ from random import random
 
 
 class RRT(Drawable):
-    MAP_MARGIN = 100
-    BIAS = 0.00
+    MAP_MARGIN = 100 # ??
+    BIAS = 0.00  # ?? 
     OBSTACLE_LIST: list[Obstacle]
 
     def __init__(self, head_pos: Vector2) -> None:
@@ -240,7 +240,7 @@ class RRT(Drawable):
 
     def main(self, goal: Vector2) -> None:
         self.started = True
-        Thread(target=self.__runnable, args=(goal,)).start()
+        Thread(target=self.__runnable, args=(goal,)).start() # thread ne işe yarar ve neden thread açıyoruz 
 
     def reset(self):
         pass
